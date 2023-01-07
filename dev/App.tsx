@@ -1,7 +1,8 @@
 import { AuthToken } from '@authorizerdev/authorizer-js';
 import { Match, Switch } from 'solid-js';
 import type { Component } from 'solid-js';
-import { useAuthorizer } from '../src';
+import { useAuthorizer } from '../src/contexts/AuthorizerContext';
+import { AuthorizerMagicLinkLogin } from '../src/components/AuthorizerMagicLinkLogin';
 
 const App: Component = () => {
   const [state, { authorizer, setUser, setToken }] = useAuthorizer();
@@ -44,7 +45,11 @@ const App: Component = () => {
         <Match when={!state.user && !state.loading} keyed={true}>
           <div>
             <h3>Login</h3>
-            <button onClick={login}>Login</button>
+            <AuthorizerMagicLinkLogin
+              placeholder="your@email.com"
+              buttonText="Submit"
+              messages={{ required: 'Enter an email', validationFailure: 'Enter a valid email' }}
+            />
           </div>
         </Match>
         <Match when={state.user && !state.loading} keyed={false}>

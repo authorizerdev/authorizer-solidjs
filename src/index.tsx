@@ -1,1 +1,1 @@
-export { AuthorizerProvider, useAuthorizer } from './contexts/AuthorizerContext';
+export { AuthorizerProvider, useAuthorizer } from './contexts';

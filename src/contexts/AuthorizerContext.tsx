@@ -4,7 +4,7 @@ import type { ParentComponent } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import type { User, AuthToken } from '@authorizerdev/authorizer-js';
 
-import type { Context, AuthorizerState } from '../types';
+import type { Context, AuthorizerState } from 'src/types';
 
 const AuthorizerContext = createContext<Context>([
   {
